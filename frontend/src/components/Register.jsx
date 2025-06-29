@@ -6,26 +6,17 @@ import axios from "axios";
 
 const formFields = [
   {
-    id: "name",
-    label: "Full Name",
-    type: "text",
-    placeholder: "Enter Full Name",
-  },
+    id: "fullname",label: "Full Name",type: "text",placeholder: "Enter Full Name"},
   { id: "email", label: "Email", type: "email", placeholder: "Enter Email" },
   { id: "phone", label: "Phone", type: "text", placeholder: "Enter Phone" },
   { id: "gender", label: "Gender", type: "text", placeholder: "Enter Gender" },
-  {
-    id: "password",
-    label: "Password",
-    type: "text",
-    placeholder: "Enter Password",
-  },
+  { id: "password",label: "Password",type: "text",placeholder: "Enter Password"}
 ];
 
 function Register() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: "",
+    fullname: "",
     email: "",
     phone: "",
     gender: "",

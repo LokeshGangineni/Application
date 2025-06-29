@@ -22,12 +22,13 @@ function Login() {
   };
     const handleSubmit=(e)=>
     {
+        console.log("started at login page");
         e.preventDefault();
         axios.post("http://localhost:5000/home",formData)
         .then((res)=>
         {
             console.log(res.data),
-            console.log("msg returned to fromtend")
+            console.log("msg returned to frontend")
             navigate('/home')
             console.log("navigation completed")
         })

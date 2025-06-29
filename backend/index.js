@@ -17,7 +17,7 @@ connectDb();
 // Route to handle registration
 app.use('/register',userRegister);
 console.log("register function completed");
-app.use('/login',userLogin);
+app.use('/home',userLogin);
 
 
 // Optional health check route

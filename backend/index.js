@@ -4,7 +4,10 @@ const cors = require('cors');
 const connectDb=require('./config/db')
 const userRegister=require('./routes/registerRoute');
 const userLogin=require('./routes/loginRoute');
+const dotenv= require('dotenv')
+dotenv.config();
 
+const secret=process.env.JWT_SECRET;
 
 const app = express();
 const PORT = 5000;

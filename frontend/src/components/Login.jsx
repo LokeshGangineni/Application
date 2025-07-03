@@ -29,7 +29,8 @@ function Login() {
         {
             console.log(res.data),
             console.log("msg returned to frontend")
-            navigate('/home')
+            console.log(res.data);
+            navigate('/dashboard')
             console.log("navigation completed")
         })
         .catch((err)=>

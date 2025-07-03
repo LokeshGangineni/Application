@@ -1,11 +1,13 @@
 const user =require('../model/dbschema');
 // const userRegister = require('./UserController');
 const bcrypt=require('bcryptjs')
+const jwt=require('jsonwebtoken')
 
 
 const userLogin=async (req,res)=>
 {
   try{
+//fetch info from frontend    
     const formData=req.body;
     console.log(formData);
     const {userName,password}=formData;
@@ -13,7 +15,7 @@ const userLogin=async (req,res)=>
     console.log( "username from frontend",userName);
     console.log( "password from frontend",password);
 
-
+//  fetching data from db 
     const userDataFromDb=await user.findOne({ email: userName });
     
 
@@ -39,8 +41,6 @@ const userLogin=async (req,res)=>
         return res.status(200).json({message:"Login successful"})
       }
     
-  
-
   }
   catch(err)
   {
@@ -48,7 +48,12 @@ const userLogin=async (req,res)=>
     res.status(500).json({error:"Server error"});
   }
 
+// creation of jwt token 
 
+const token=jwt.sign({id:userDataFromDb.id, userName:userDataFromDb.userName},process.env.JWT_SECRET,{expiresIn:'1h'});
+
+//send tooken to backend
+res.status(200).json({message:" token generated successfully ",token:token})
 };
 
 module.exports=userLogin;

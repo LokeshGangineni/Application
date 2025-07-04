@@ -8,6 +8,9 @@ import Home from './components/Home.jsx'
 import DashboardLayout from './components/DashboardLayout.jsx'
 import Analytics from './components/Analytics.jsx'
 import LiveTracking from './components/LiveTracking.jsx'
+import Data from './components/Data.jsx'
+import PersonalData from './components/PersonalData.jsx'
+import Dashboard from './components/dashboard.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,14 +25,18 @@ function App() {
         <Router>
 
           <Routes>
-            <Route path='/' element={<Register/>} />
-            <Route path='/login' element={<Login/>} />
-            <Route  path='/dashboard' element={<DashboardLayout/>} >
-              <Route path='Analytics' element={<Analytics/>} />
-              <Route path='LiveTracking' element={<LiveTracking/>} />
+            <Route path='/' element={<Register />} />
+            <Route path='/login' element={<Login />} />
 
+            <Route path='/dashboard' element={<DashboardLayout />}>
+              <Route path='dashboard' element={<Dashboard/>} />
+              <Route path='Analytics' element={<Analytics />} />
+              <Route path='LiveTracking' element={<LiveTracking />} />
+              <Route path='Data' element={<Data />} />
+              <Route path='personalData' element={<PersonalData />} /> 
             </Route>
           </Routes>
+
         </Router>
 
       </div>

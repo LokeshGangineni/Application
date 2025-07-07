@@ -30,7 +30,7 @@ function Login() {
             console.log(res.data),
             console.log("msg returned to frontend")
             console.log(res.data);
-            navigate('/dashboard')
+            navigate('/vehicleRegistration')
             console.log("navigation completed")
         })
         .catch((err)=>

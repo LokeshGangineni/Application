@@ -4,11 +4,11 @@ import { MdSpaceBar, MdSpeed } from 'react-icons/md'
 function Dashboard() {
   return (
     <div className=''>
-      <div className='flex flex-row justify-around  'style={{backgroundColor:"#1A202C"}}>
-        <div className='border  pr-35 pl-35 pt-15 pb-15 m-1 flex items-center  rounded-2xl  ' style={{borderColor:"#1A203g"}}><FiUsers className='size-7 text-blue-400'/></div>
-        <div className='border  pr-35 pl-35 pt-15 pb-15 m-1 flex items-center  rounded-2xl  ' style={{borderColor:"#1A203g"}}><FiWifi className='size-7 text-green-400' /></div>
-        <div className='border  pr-35 pl-35 pt-15 pb-15 m-1 flex items-center  rounded-2xl  ' style={{borderColor:"#1A203g"}}><MdSpeed className='size-7 text-orange-400' /></div>
-        <div className='border  pr-35 pl-35 pt-15 pb-15 m-1 flex items-center  rounded-2xl  ' style={{borderColor:"#1A203g"}}><FiBarChart2 className='size-7 text-green-400' /></div>
+      <div className='flex flex-row justify-around cursor-pointer p-9 'style={{backgroundColor:"#1A202C"}}>
+        <div className='border   flex items-center flex-wrap  rounded-2xl  ' style={{borderColor:"#1A203g"}}> <div className='bg-blue-900  rounded-2xl' > <FiUsers className='size-7 text-blue-400'/></div></div>
+        <div className='border   flex items-center flex-wrap  rounded-2xl  ' style={{borderColor:"#1A203g"}}> <div className='bg-green-900  rounded-2xl' > <FiWifi className='size-7 text-green-400' /></div></div>
+        <div className='border   flex items-center flex-wrap  rounded-2xl  ' style={{borderColor:"#1A203g"}}> <div className='bg-orange-900  rounded-2xl' > <MdSpeed className='size-7 text-orange-400' /></div></div>
+        <div className='border   flex items-center flex-wrap  rounded-2xl  ' style={{borderColor:"#1A203g"}}> <div className='bg-green-900  rounded-2xl' > <FiBarChart2 className='size-7 text-green-400' /></div></div>
       </div>
     </div>
   )

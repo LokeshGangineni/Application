@@ -11,6 +11,7 @@ import LiveTracking from './components/LiveTracking.jsx'
 import Data from './components/Data.jsx'
 import PersonalData from './components/PersonalData.jsx'
 import Dashboard from './components/dashboard.jsx'
+import Vehicle from './components/Vehicle.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,6 +28,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Register />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/vehicleRegistration' element={<Vehicle />} />
 
             <Route path='/dashboard' element={<DashboardLayout />}>
               <Route path='dashboard' element={<Dashboard/>} />

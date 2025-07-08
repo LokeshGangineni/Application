@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import axios from 'axios';
 
 const vehicleRegistrationCommonField = [
   {
@@ -28,6 +29,21 @@ function Vehicle() {
     const handlePrevent=(e)=>
     {
         e.preventDefault();
+         const finalFormData = {
+        ...formData,                 // spread current form data
+        vehicleType: vehicleType     // ✅ add vehicleType manually
+    };
+        axios.post('http://localhost:5000/vehicleRegistration',finalFormData)
+        .then((res)=>
+        {
+            console.log(res.data);
+            navigate('/dashboard');
+        })
+        .catch((err)=>
+        {
+            console.log("error is : ",err);
+        })
+        
     }
 
     const navigate=useNavigate();
@@ -36,7 +52,10 @@ function Vehicle() {
         VehicleName:"",
         Battery : "",
         Speed : "",
-        Status :""
+        Status :"",
+        ChargingStatus:"",
+        FuelType:"",
+        FuelPercent:""
 
     })
     const handleChange=(e)=>
@@ -44,14 +63,8 @@ function Vehicle() {
         const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
     }
-    const handleOnclick=()=>
-    {
-        navigate('/dashboard');
-    }
-    const handleOnclickForSelection=()=>
-    {
-        
-    }
+    
+    
     
   return (
     <> 
@@ -132,7 +145,7 @@ function Vehicle() {
                     </div>
                 ))
             }
-            <button  onClick={handleOnclick} type='button' className='border rounded-2xl  px-2  hover:bg-blue-400 cursor-pointer' >Submit</button>
+            <button   type='submit' className='border rounded-2xl  px-2  hover:bg-blue-400 cursor-pointer' >Submit</button>
             </form>
             }
         </div>

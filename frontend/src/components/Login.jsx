@@ -15,6 +15,7 @@ function Login() {
             password:''
         }
     );
+    const [msg,setMsg]=useState("");
     const navigate=useNavigate();
     const handleChange = (e) => {
     const { id, value } = e.target;
@@ -24,18 +25,21 @@ function Login() {
     {
         console.log("started at login page");
         e.preventDefault();
-        axios.post("http://localhost:5000/home",formData)
+        axios.post("http://localhost:5000/login",formData)
         .then((res)=>
         {
             console.log(res.data),
             console.log("msg returned to frontend")
             console.log(res.data);
+           
             navigate('/vehicleRegistration')
             console.log("navigation completed")
         })
         .catch((err)=>
         {
             console.log("error is : ",err)
+
+             setMsg(err.response.data.message);
         })
     }
   return (
@@ -47,7 +51,7 @@ function Login() {
             {
                 loginFields.map(field=>
                     (
-                    <div key={loginFields.id}  className='flex flex-col justify-center items-center gap-4'>
+                    <div key={field.id}  className='flex flex-col justify-center items-center gap-4'>
                         <label className='px-3 ' htmlFor="">{field.label}</label>
                         <input 
                         id={field.id}
@@ -61,6 +65,7 @@ function Login() {
                 ))
             }
             <button  className='border border-black-300 hover:bg-blue-400 px-3 py-0.5 rounded-2xl'>Submit</button>
+            <h2 className='text-black' >{msg} </h2>
         </form>
     </div>
   )

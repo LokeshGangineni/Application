@@ -4,7 +4,8 @@ const cors = require('cors');
 const connectDb=require('./config/db')
 const userRegister=require('./routes/registerRoute');
 const userLogin=require('./routes/loginRoute');
-const dotenv= require('dotenv')
+const dotenv= require('dotenv');
+const vehicleRoute = require('./routes/vehicleRouter');
 dotenv.config();
 
 const secret=process.env.JWT_SECRET;
@@ -20,7 +21,8 @@ connectDb();
 // Route to handle registration
 app.use('/register',userRegister);
 console.log("register function completed");
-app.use('/home',userLogin);
+app.use('/login',userLogin);
+app.use('/vehicleRegistration',vehicleRoute);
 
 
 // Optional health check route
